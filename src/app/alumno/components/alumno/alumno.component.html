@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="container-v1">
+    <h3>Lista de Alumnos</h3>
+    <button mat-raised-button class="btn btn-dark" (click)="openModalForAdd()">
+      Agregar Alumno
+    </button>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Fecha de Nacimiento</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let alumno of alumnos">
+        <td>{{ alumno.id }}</td>
+        <td>{{ alumno.nombre }}</td>
+        <td>{{ alumno.fechaNacimiento }}</td>
+        <td>
+          <button class="btn btn-warning" (click)="openModalForUpdate(alumno)">
+            Editar
+          </button>
+          <button class="btn btn-danger" (click)="deleteAlumno(alumno.id)">
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

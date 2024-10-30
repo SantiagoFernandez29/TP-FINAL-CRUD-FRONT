@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>Editar Docente</h2>
+  <form>
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input [(ngModel)]="data.nombre" type="text" class="form-control" name="nombre" id="nombre">
+    </div>
+    <div class="mb-3">
+      <label for="legajo" class="form-label">Legajo</label>
+      <input [(ngModel)]="data.legajo" type="number" class="form-control" name="legajo" id="legajo">
+    </div>
+    <div class="container-v1">
+      <button type="button" class="btn btn-success" (click)="onAccept()">Aplicar cambios</button>
+      <button type="button" class="btn btn-danger" (click)="onCancel()">Cancelar</button>
+    </div>
+  </form>
+</div>
+  

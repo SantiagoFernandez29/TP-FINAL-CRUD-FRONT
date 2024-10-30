@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="container-v1">
+    <h3>Lista de Temas</h3>
+    <button mat-raised-button class="btn btn-dark" (click)="openModalForAdd()">Agregar Tema</button>
+  </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tema of temas">
+          <td>{{ tema.id }}</td>
+          <td>{{ tema.nombre }}</td>
+          <td>{{ tema.descripcion }}</td>
+          <td>
+            <button class="btn btn-warning" (click)="openModalForUpdate(tema)">Editar</button>
+            <button class="btn btn-danger" (click)="deleteTema(tema.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

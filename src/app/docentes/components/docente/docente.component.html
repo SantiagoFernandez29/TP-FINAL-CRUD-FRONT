@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="container-v1">
+    <h3>Lista de Docentes</h3>
+    <button mat-raised-button class="btn btn-dark" (click)="openModalForAdd()">Agregar Docente</button>
+  </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Legajo</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let docente of docentes">
+          <td>{{ docente.id }}</td>
+          <td>{{ docente.nombre }}</td>
+          <td>{{ docente.legajo }}</td>
+          <td>
+              <button class="btn btn-warning" (click)="openModalForUpdate(docente)">Editar</button>
+              <button class="btn btn-danger" (click)="deleteDocente(docente.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

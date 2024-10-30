@@ -1,0 +1,35 @@
+<div class="container">
+  <h2>Editar Alumno</h2>
+  <form>
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input
+        [(ngModel)]="data.nombre"
+        type="text"
+        class="form-control"
+        name="nombre"
+        id="nombre"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="fechaNacimiento" class="form-label"
+        >Fecha de Nacimiento</label
+      >
+      <input
+        [(ngModel)]="data.fechaNacimiento"
+        type="date"
+        class="form-control"
+        name="fechaNacimiento"
+        id="fechaNacimiento"
+      />
+    </div>
+    <div class="container-v1">
+      <button type="button" class="btn btn-success" (click)="onAccept()">
+      Aplicar cambios
+      </button>
+      <button type="button" class="btn btn-danger" (click)="onCancel()">
+        Cancelar
+      </button>
+    </div>
+  </form>
+</div>

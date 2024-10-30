@@ -1,0 +1,78 @@
+  <div class="container">
+    <div class="container-v1">
+      <h3>Lista de Cursos</h3>
+      <button mat-raised-button class="btn btn-dark" (click)="openModalForAdd()">Agregar Curso</button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Fecha de Iniciación</th>
+          <th>Fecha de Finalización</th>
+          <th>Precio</th>
+          <th>Tema</th>
+          <th>Docente</th>
+          <th>Alumnos</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- para cada curso de la lista de Cursos a mostrar. -->
+        <tr *ngFor="let curso of cursos">
+          <td>{{ curso.id }}</td>
+          <td>{{ curso.fechaInicio }}</td>
+          <td>{{ curso.fechaFin }}</td>
+          <td>{{ curso.precio }}</td>
+          <td>{{ curso.tema.nombre }}</td>
+          <td>{{ curso.docente.nombre }}</td>
+          <td *ngFor="let alumno of curso.alumnos">{{ alumno.nombre }}</td>
+          <td>
+            <button class="btn btn-warning" (click)="openModalForUpdate(curso)">Editar</button>
+            <button class="btn btn-danger" (click)="deleteCurso(curso.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container-v2">
+    <h2>Buscar Cursos por Fecha de Finalización</h2>
+    <div class="form-group">
+      <div class="container-v3">
+        <label for="fechaFin">Fecha de Finalización</label>
+        <input type="date" id="fechaFin" [(ngModel)]="fechaFin" class="form-control">
+        <!-- con [(ngModel)] lo que hago es almacenar el value del input en fechaFin, inicializado en el componente -->
+      </div>
+      <button (click)="findCursosByFechaFin()" class="btn btn-primary">Buscar</button>
+    </div>
+    
+    <!-- si se encontraron cursos con esa fecha de finalización -->
+    <ul *ngIf="cursosFiltrados.length > 0">
+      <!-- entonces se muestra cada uno. -->
+      <li *ngFor="let curso of cursosFiltrados">
+        {{ curso.tema.nombre }}
+      </li>
+    </ul>
+    <p *ngIf="cursosFiltrados.length === 0">No se encontraron cursos para la fecha seleccionada.</p>
+  </div>
+
+  <div class="container-v2">
+
+    <h2>Alumnos del Curso Vigente dado por el Profesor</h2>
+    <div class="form-group">
+      <div class="container-v3">
+        <label for="docenteId">ID del Profesor</label>
+        <input type="number" id="docenteId" [(ngModel)]="docenteId" class="form-control">
+      </div>
+      <button (click)="findAlumnosByDocente()" class="btn btn-primary">Buscar</button>
+    </div>
+    
+    <ul *ngIf="alumnosPorCurso.length > 0">
+      <li *ngFor="let alumno of alumnosPorCurso">
+        {{ alumno.nombre }}
+      </li>
+    </ul>
+    <p *ngIf="alumnosPorCurso.length === 0">No se encontraron alumnos para el curso vigente.</p>
+  </div>
+    
+    

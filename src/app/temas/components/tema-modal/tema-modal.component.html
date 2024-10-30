@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>Editar Tema</h2>
+  <form>
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input [(ngModel)]="data.nombre" type="text" class="form-control" name="nombre" id="nombre">
+    </div>
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripción</label>
+      <input [(ngModel)]="data.descripcion" type="text" class="form-control" name="descripcion" id="descripcion">
+    </div>
+    <div class="container-v1">
+      <button type="button" class="btn btn-success" (click)="onAccept()">Aplicar cambios</button>
+      <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancelar</button>
+    </div>
+  </form>
+</div>
